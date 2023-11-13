@@ -1,0 +1,37 @@
+<!-- contact.component.html -->
+<div class="contact-container">
+  <!-- ... existing HTML ... -->
+
+  <div *ngIf="contrats && contrats.length; else noContracts">
+    <h2>Contracts</h2>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Specialty</th>
+          <th>Amount</th>
+          <th>Archived</th>
+          <th>Student ID</th>
+          <!-- New header for Student ID -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contrat of contrats">
+          <td>{{ contrat.idContrat }}</td>
+          <td>{{ contrat.dateDebutContrat | date }}</td>
+          <td>{{ contrat.dateFinContrat | date }}</td>
+          <td>{{ contrat.specialite }}</td>
+          <td>{{ contrat.montantContrat | currency }}</td>
+          <td>{{ contrat.archived ? "Yes" : "No" }}</td>
+          <td>1</td>
+          <!-- New column for Student ID -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #noContracts>
+    <p>No contracts available.</p>
+  </ng-template>
+</div>
