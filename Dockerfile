@@ -16,4 +16,4 @@ FROM nginx:alpine
 # Set the working directory
 WORKDIR /usr/share/nginx/html
 # Copy the built Angular app files from the build stage
-COPY --from=build /dist/contract-front .
+COPY --from=build /app/dist/contract-front .
