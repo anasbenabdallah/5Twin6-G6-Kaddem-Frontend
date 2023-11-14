@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ContractService {
-  private apiUrl = 'http://localhost:8089/Kaddem/contrat/retrieve-all-contrats';
+  private apiUrl =
+    'http://192.168.33.10:8001/Kaddem/contrat/retrieve-all-contrats';
 
   constructor(private http: HttpClient) {}
 
