@@ -1,0 +1,16 @@
+<!-- all-universite.component.html -->
+
+<div class="container" *ngIf="universites.length > 0; else noData">
+    <h2>Liste des Universités :</h2>
+    <ul>
+      <li *ngFor="let universite of universites">
+        {{ universite.nomUniv }}
+        <!-- Display other properties as needed -->
+      </li>
+    </ul>
+  </div>
+  
+  <ng-template #noData>
+    <p class="no-data">Aucune université n'est disponible actuellement.</p>
+  </ng-template>
+  
