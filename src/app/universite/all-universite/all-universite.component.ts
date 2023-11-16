@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import * as XLSX from 'xlsx'; // For exporting to Excel
 
+
 @Component({
   selector: 'app-all-universite',
   templateUrl: './all-universite.component.html',
@@ -14,7 +15,7 @@ import * as XLSX from 'xlsx'; // For exporting to Excel
 export class AllUniversiteComponent implements OnInit {
   universites: Universite[] = [];
   dataSource: MatTableDataSource<Universite>;
-  displayedColumns: string[] = ['idUniversite', 'nomUniv', 'descUniv'];
+  displayedColumns: string[] = ['idUniversite', 'nomUniv', 'descUniv','delete'];
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -49,6 +50,18 @@ export class AllUniversiteComponent implements OnInit {
   }
 
 
+  deleteUniversite(universiteId: number): void {
+    // Assuming you have a service method to delete the university by ID
+    this.universiteService.deleteUniversite(universiteId).subscribe(
+      () => {
+        // If the deletion is successful, refresh the data
+        this.getUniversites();
+      },
+      (error) => {
+        console.error('Error deleting universite:', error);
+      }
+    );
+  }
   
   
   

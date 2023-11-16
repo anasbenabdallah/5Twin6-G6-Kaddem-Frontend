@@ -15,4 +15,8 @@ export class UniversiteService {
     const url = `${this.apiUrl}/retrieve-all-universites`;
     return this.http.get<Universite[]>(url);
   }
+  deleteUniversite(universiteId: number): Observable<any> {
+    const url = `${this.apiUrl}/delete-universite/${universiteId}`;
+    return this.http.delete(url);
+  }
 }
